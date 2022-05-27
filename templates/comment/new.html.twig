@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{#{% block title %}New Comment{% endblock %}#}
+
+{% block body %}
+{% include "_header.html.twig" %}
+<section class="main container-fluid container-lg">
+    <div id="comment" class="d-flex justify-content-center flex-column mx-auto mt-4 py-4 px-3">
+    <h1 class="mb-4">Create new Comment</h1>
+
+    {{ include('comment/_form.html.twig') }}
+
+    {#<a href="{{ path('comment_index') }}">back to list</a>#}
+    </div>
+</section>
+
+{% include "_footer.html.twig" %}
+
+{% endblock %}

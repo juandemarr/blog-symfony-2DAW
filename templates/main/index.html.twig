@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{#{% block title %}Hello MainController!{% endblock %}#}
+
+{% block body %}
+{#
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/PHP/PHP/Tema 6 Symfony/blogsymfony/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
+        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/PHP/PHP/Tema 6 Symfony/blogsymfony/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
+    </ul>
+</div>
+#}
+{% include "_header.html.twig" %}
+
+<section class="main container-fluid container-lg">
+    <h1 class="text-center my-4">SW Videogames Blog</h1>
+    {% for videogame in videogames %}
+    <div class="d-flex flex-column flex-sm-row videogame">
+        <img src="/img/{{ videogame.img }}" alt="{{ videogame.title }}">
+        <div class="d-flex flex-column w-100">
+            <p class="bold">{{ videogame.title }}</p>
+            <p>{{ videogame.year }}</p>
+            <p>{{ videogame.description }}</p>
+            {% if is_granted("ROLE_ADMIN") %}
+            <div class="d-flex mt-2 align-self-end">
+                <button class="btn btn-admin btn-success mr-2"><a href="/videogames/{{videogame.id}}/edit">Edit</a></button>
+                {# boton delete #}
+                <form method="post" action="{{ path('videogame_delete', {'id': videogame.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ videogame.id) }}">
+                    <button class="btn btn-admin btn-danger">Delete</button>
+                </form>
+
+            </div>
+            {% endif %}
+
+            {% if is_granted("ROLE_USER") %}
+            <button class="btn btn-violet mt-3"><a href="/comments/new/{{videogame.id}}">Add comment</a></button>
+            {% else %}
+            <p class="italic text-little mt-3">You must be <a class="link" href="/login">logged in</a> to comment</p>
+            {% endif %}
+
+            <p class="bold mt-3">Comments</p>
+            {% for comment in videogame.comments %}
+            <div class="container-comment px-2 py-1 d-flex">
+                <div class="comment-left">
+                    <p>{{ comment.author }}: <span class="text-little">{{ comment.timedate }}</span></p>
+                    <p class="italic">{{ comment.text }}</p>
+                </div>
+                {% if user == comment.author or userAdmin %}
+                <div class="comment-right d-flex align-items-center justify-content-end">
+                    <p class="d-inline ">
+                        {% if user == comment.author %}
+                        <a class="link" href="/comments/{{comment.id}}/edit">Edit</a>
+                        {% endif %}
+                        <form class="d-inline" method="post" action="{{ path('comment_delete', {'id': comment.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ comment.id) }}">
+                            <button class="link link-delete">Delete</button>
+                        </form>
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+        
+
+    {% endfor %}
+</section>
+
+{% include "_footer.html.twig" %}
+
+{% endblock %}

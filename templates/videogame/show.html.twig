@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% include "_header.html.twig" %}
+
+<section class="main container-fluid container-lg">
+    <h1 class="text-center my-4">Videogame</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ videogame.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ videogame.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ videogame.description }}</td>
+            </tr>
+            <tr>
+                <th>Year</th>
+                <td>{{ videogame.year }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td>{{ videogame.img }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {#<a href="{{ path('videogame_index') }}">back to list</a>
+
+    <a href="{{ path('videogame_edit', {'id': videogame.id}) }}">edit</a>#}
+
+    {{ include('videogame/_delete_form.html.twig') }}
+</section>
+
+{% include "_footer.html.twig" %}
+
+{% endblock %}

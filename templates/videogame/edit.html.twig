@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% include "_header.html.twig" %}
+
+<section class="main container-fluid container-lg">
+    <div class="d-flex justify-content-center flex-column container-form mx-auto mt-4 py-4 px-3">
+    <h1 class="mb-4 text-center">Edit Videogame</h1>
+    
+    {{ include('videogame/_form.html.twig', {'button_label': 'Update'}) }}
+
+    {#<a href="{{ path('videogame_index') }}">back to list</a>
+    {{ include('videogame/_delete_form.html.twig') }}#}
+    </div>
+</section>
+
+{% include "_footer.html.twig" %}
+
+{% endblock %}

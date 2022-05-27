@@ -1,0 +1,43 @@
+@font-face{
+    font-family:nunito;
+    src:url(../../fonts/Nunito-Light.ttf);
+}
+//VARIABLES
+$bg-primary:#f0f0f0;
+$color-primary:#2f2f2f;
+$color-grey:#a1a1a1;
+$color-violet:#a8009a;
+$color-violet-shadow:#a8009a60;
+$color-white:#FFF;
+$font-title:nunito,sans-serif;
+
+//MIXINS
+@mixin response($breakpoint){
+    @if($breakpoint == xl){
+        @media(max-width:1200px){
+            @content;
+        }
+    }
+
+    @if($breakpoint == lg){
+        @media(max-width:992px){
+            @content;
+        }
+    }
+
+    @if($breakpoint == md){
+        @media(max-width:768px){
+            @content;
+        }
+    }
+
+    @if($breakpoint == sm){
+        @media(max-width:576px){
+            @content;
+        }
+    }
+}
+//incluir con 
+//@include response(lg){
+    //padding:1rem;
+//}

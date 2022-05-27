@@ -1,0 +1,192 @@
+@import "base";
+*{
+    box-sizing:border-box;
+}
+body{
+    background-color: $bg-primary;
+    color:$color-primary;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size:1rem;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+
+    @include response(md){
+        font-size:1.25rem;
+    }
+}
+
+.btn{
+    padding:0.2rem;
+}
+.btn-admin{
+    width:5rem;
+}
+.btn-violet{
+    background-color:$color-violet;
+    width:8rem;
+    color:$color-white;
+    &:hover{
+        color:$color-white;
+    }
+    &:focus{
+        box-shadow: 0 0 0 0.2rem $color-violet-shadow;
+    }
+}
+.link-delete{
+    border:none;
+}
+
+//SECTIONS
+
+.main{
+    flex:1 0 auto;
+}
+
+.container-form{
+    border: 2px solid $color-grey;
+    border-radius: 10px;
+    width: 40%;
+
+    form{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        div{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            margin:0 0 1rem;
+            width:100%;
+            input{
+                width:70%;
+
+                @include response(sm){
+                    width: 90%;
+                }
+            }
+        }
+        button{
+            width:8rem;
+        }
+    }
+
+    @include response(md){
+        width: 60%;
+    }
+    @include response(sm){
+        width: 80%;
+    }
+}
+
+.videogame{
+    border:2px solid $color-grey;
+    padding:2rem;
+    border-radius:10px;
+    margin:0 0 2.5rem;
+
+    img{
+        height:10rem;
+        margin: 0 1.5rem 0 0;
+
+        @include response(sm){
+            height: 15rem;
+            object-fit: contain;
+            margin: 0 0 1.5rem;
+        }
+    }
+}
+
+.container-comment{
+    border-bottom:1px solid $color-grey;
+    .comment-left{
+        width:90%;
+
+        @include response(lg){
+            width:80%;
+        }
+        @include response(md){
+            width:70%;
+        }
+    }
+    .comment-right{
+        width:10%;
+        p{
+            margin:0;
+        }
+
+        @include response(lg){
+            width:20%;
+        }
+        @include response(md){
+            width:30%;
+        }
+    }
+}
+
+#comment{
+    label{
+        margin:0 0.75rem 0 0;
+    }
+    input{
+        width:90%;
+    }
+    button{
+        width:5rem;
+        margin:1.5rem 0 0;
+    }
+    & + button{
+        width:5rem;
+        margin:1.5rem 0 0;
+    }
+
+}
+.link{
+    color:$color-primary;
+    text-decoration: underline;
+    &:hover{
+        color:$color-primary;
+        text-decoration: underline;
+    }
+}
+
+//ELEMENTS
+
+h1{
+    font-family:$font-title;
+    font-size:2.5rem;
+}
+
+p{
+    margin:0 0 0.25rem;
+}
+
+a{
+    color:white;
+    text-decoration: none;
+    &:hover{
+        color:white;
+        text-decoration: none;
+    }
+}
+
+input{
+    padding:0.15rem 0.5rem;
+    border-radius:3px;
+    border:1px solid $color-grey;
+}
+
+.bold{
+    font-weight:bold;
+}
+
+.italic{
+    font-style:italic;
+}
+
+.text-little{
+    font-size:0.8rem;
+    @include response(md){
+        font-size:1rem;
+    }
+}

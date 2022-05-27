@@ -1,0 +1,207 @@
+@font-face {
+  font-family: nunito;
+  src: url(../../fonts/Nunito-Light.ttf);
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f0f0;
+  color: #2f2f2f;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+@media (max-width: 768px) {
+  body {
+    font-size: 1.25rem;
+  }
+}
+
+.btn {
+  padding: 0.2rem;
+}
+
+.btn-admin {
+  width: 5rem;
+}
+
+.btn-violet {
+  background-color: #a8009a;
+  width: 8rem;
+  color: #FFF;
+}
+.btn-violet:hover {
+  color: #FFF;
+}
+.btn-violet:focus {
+  box-shadow: 0 0 0 0.2rem #a8009a60;
+}
+
+.link-delete {
+  border: none;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.container-form {
+  border: 2px solid #a1a1a1;
+  border-radius: 10px;
+  width: 40%;
+}
+.container-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container-form form div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 1rem;
+  width: 100%;
+}
+.container-form form div input {
+  width: 70%;
+}
+@media (max-width: 576px) {
+  .container-form form div input {
+    width: 90%;
+  }
+}
+.container-form form button {
+  width: 8rem;
+}
+@media (max-width: 768px) {
+  .container-form {
+    width: 60%;
+  }
+}
+@media (max-width: 576px) {
+  .container-form {
+    width: 80%;
+  }
+}
+
+.videogame {
+  border: 2px solid #a1a1a1;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 0 0 2.5rem;
+}
+.videogame img {
+  height: 10rem;
+  margin: 0 1.5rem 0 0;
+}
+@media (max-width: 576px) {
+  .videogame img {
+    height: 15rem;
+    object-fit: contain;
+    margin: 0 0 1.5rem;
+  }
+}
+
+.container-comment {
+  border-bottom: 1px solid #a1a1a1;
+}
+.container-comment .comment-left {
+  width: 90%;
+}
+@media (max-width: 992px) {
+  .container-comment .comment-left {
+    width: 80%;
+  }
+}
+@media (max-width: 768px) {
+  .container-comment .comment-left {
+    width: 70%;
+  }
+}
+.container-comment .comment-right {
+  width: 10%;
+}
+.container-comment .comment-right p {
+  margin: 0;
+}
+@media (max-width: 992px) {
+  .container-comment .comment-right {
+    width: 20%;
+  }
+}
+@media (max-width: 768px) {
+  .container-comment .comment-right {
+    width: 30%;
+  }
+}
+
+#comment label {
+  margin: 0 0.75rem 0 0;
+}
+#comment input {
+  width: 90%;
+}
+#comment button {
+  width: 5rem;
+  margin: 1.5rem 0 0;
+}
+#comment + button {
+  width: 5rem;
+  margin: 1.5rem 0 0;
+}
+
+.link {
+  color: #2f2f2f;
+  text-decoration: underline;
+}
+.link:hover {
+  color: #2f2f2f;
+  text-decoration: underline;
+}
+
+h1 {
+  font-family: nunito, sans-serif;
+  font-size: 2.5rem;
+}
+
+p {
+  margin: 0 0 0.25rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+input {
+  padding: 0.15rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid #a1a1a1;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.text-little {
+  font-size: 0.8rem;
+}
+@media (max-width: 768px) {
+  .text-little {
+    font-size: 1rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
